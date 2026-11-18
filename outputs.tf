@@ -22,6 +22,10 @@ output "vpclattice_service_lookup_dns_entry" {
   description = "Map of dns_entry values across all vpclattice_service_lookup, keyed the same as var.vpclattice_service_lookup"
   value       = { for k, v in data.aws_vpclattice_service.vpclattice_service_lookup : k => v.dns_entry if v.dns_entry != null && length(v.dns_entry) > 0 }
 }
+output "vpclattice_service_lookup_idle_timeout_seconds" {
+  description = "Map of idle_timeout_seconds values across all vpclattice_service_lookup, keyed the same as var.vpclattice_service_lookup"
+  value       = { for k, v in data.aws_vpclattice_service.vpclattice_service_lookup : k => v.idle_timeout_seconds if v.idle_timeout_seconds != null }
+}
 output "vpclattice_service_lookup_name" {
   description = "Map of name values across all vpclattice_service_lookup, keyed the same as var.vpclattice_service_lookup"
   value       = { for k, v in data.aws_vpclattice_service.vpclattice_service_lookup : k => v.name if v.name != null && length(v.name) > 0 }
